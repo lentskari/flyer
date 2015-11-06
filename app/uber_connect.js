@@ -31,9 +31,27 @@ module.exports = React.createClass({
     LinkingIOS.openURL(url);
   },
 
-  handleRedirect: function() {
-    console.log("Handling redirect");
-    console.log(arguments);
+  handleRedirect: function(event) {
+    var url = event.url;
+    this.postAuthorizationCodeToServer(url.split("?code=")[1]); // Ugly :(
     LinkingIOS.removeEventListener('url', this.handleRedirect);
+  },
+
+  postAuthorizationCodeToServer: function(code) {
+    console.log(code);
+    fetch('http://api.steward.dev/customers/1/uber_access', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        authorization_code: code,
+      })
+    }).then((response) => {
+      console.log(response);
+    }).catch((ex) => {
+      console.log(ex);
+    });
   }
 });
