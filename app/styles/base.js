@@ -35,6 +35,7 @@ module.exports = StyleSheet.create({
     color: "#ffffff",
   },
   goText: {
+    marginTop: 200,
     fontFamily: 'Avenir',
     fontSize: 30,
     color: "#ffffff",
@@ -43,14 +44,18 @@ module.exports = StyleSheet.create({
     width: 360
   },
   logo: {
-    paddingTop: 20,
+    position: 'absolute',
+    right:0,
+    left: 0,
+    padding: 0,
+    paddingTop: 16,
     paddingLeft: 90,
     justifyContent: 'center',
     alignItems: 'center',
     fontFamily: 'Avenir',
     fontSize: 60,
     fontWeight: "900",
-    color: "#ffffff"
+    color: "#ffffff",
   },
   button: {
     color: "#ffffff",

@@ -6,7 +6,6 @@ var JourneyView = require('./journey_view');
 
 var baseStyles = require('./styles/base');
 
-var Geolocation = require('./lib/geolocation');
 var Logo = require('./logo_view');
 
 var {
@@ -20,25 +19,14 @@ var {
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      fromText: "Current location",
-      toText: "",
-      bookingNumber: "",
-      currentLocation: {},
       address: ""
     };
-  },
-
-  componentDidMount: function() {
-    this.geolocation = new Geolocation();
-    this.geolocation.getCurrentLocation().then((location) => {
-      this.setState({ currentLocation: location });
-    }).catch((error) => console.log(error));
   },
 
   render: function() {
     return <View style={{}}>
       <Image source={require('image!eiffel-tower')} style={baseStyles.backgroundImage} resizeMode='cover' />
-      <Logo />
+      <Logo/>
       <Text style={baseStyles.goText}>I want to go to</Text>
       <View style={{flexDirection: 'row', height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginRight: 60, marginBottom: 210, borderBottomColor: "#ffffff"}}>
         <TextInput
@@ -60,9 +48,4 @@ module.exports = React.createClass({
       </Text>
     </View>;
   },
-
-  navigateToJourneyView: function(customer) {
-    this.props.onForward();
-  }
-
 });

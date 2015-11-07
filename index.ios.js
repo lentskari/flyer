@@ -6,7 +6,7 @@ var InfoView = require('./app/info_view');
 var MemberView = require('./app/member_view');
 var Geolocation = require('./app/lib/geolocation');
 
-SCENES = ["infoview", "memberview", "journey"];
+SCENES = ["journey", "infoview", "memberview", "journey"];
 
 var {
   AppRegistry,

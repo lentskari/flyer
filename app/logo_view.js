@@ -8,7 +8,7 @@ var {
 module.exports = React.createClass({
   render: function() {
     return (
-      <Text style={baseStyles.logo}>gogo</Text>
+      <Text style={[baseStyles.logo, this.props.style]}>gogo</Text>
     );
   }
 });
