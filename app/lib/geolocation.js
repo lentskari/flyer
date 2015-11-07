@@ -6,16 +6,12 @@ class Geolocation {
     this.locationWatches = [];
   }
 
-  getCurrentPosition() {
+  getCurrentLocation() {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (initialPosition) => {
-          var position = initialPosition.coords;
-          resolve({ lat: position.latitude, lon: position.longitude});
-        },
-        (error) => reject(error),
-        {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-      );
+      var watchId = this.watchLocation((location) => {
+        navigator.geolocation.clearWatch(watchId);
+        resolve(location);
+      });
     });
   }
 
@@ -26,6 +22,7 @@ class Geolocation {
       throttledCallback({ lat: position.latitude, lon: position.longitude });
     });
     this.locationWatches.push(watchId);
+    return watchId;
   }
 
   unregisterLocationWatches() {

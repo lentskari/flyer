@@ -1,14 +1,18 @@
 var React = require('react-native');
+var _ = require('underscore');
 
 var Button = require('react-native-button');
 var JourneyView = require('./journey_view');
 
 var baseStyles = require('./styles/base');
 
+var Geolocation = require('./lib/geolocation');
+
 var {
   View,
   Text,
-  TextInput
+  TextInput,
+  AlertIOS
 } = React;
 
 module.exports = React.createClass({
@@ -16,8 +20,16 @@ module.exports = React.createClass({
     return {
       fromText: "Current location",
       toText: "",
-      bookingNumber: ""
+      bookingNumber: "",
+      currentLocation: {}
     };
+  },
+
+  componentDidMount: function() {
+    this.geolocation = new Geolocation();
+    this.geolocation.getCurrentLocation().then((location) => {
+      this.setState({ currentLocation: location });
+    }).catch((error) => console.log(error));
   },
 
   render: function() {
@@ -25,6 +37,7 @@ module.exports = React.createClass({
       <View style={{flexDirection: 'row', height: 60, padding: 10}}>
         <Text style={{marginRight: 4}}>From:</Text>
         <TextInput
+          clearTextOnFocus={true}
           style={[baseStyles.input, { flex: 0.8 }]}
           onChangeText={(text) => this.setState({fromText: text})}
           value={this.state.fromText}/>
@@ -49,10 +62,14 @@ module.exports = React.createClass({
   },
 
   submitJourney: function() {
-    // this.props.navigator.push({
-    //   title: "Your route",
-    //   component: JourneyView
-    // });
+    if (_.isEmpty(this.state.currentLocation)) {
+      AlertIOS.alert("Current locatiot not found yet :(");
+      return;
+    }
+    this.props.navigator.push({
+      title: "Your route",
+      component: JourneyView
+    });
   }
 
 });

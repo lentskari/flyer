@@ -5,6 +5,7 @@ var {
   View,
   Text
 } = React;
+
 module.exports = React.createClass({
   render: function() {
     return <View style={baseStyles.scene}>
