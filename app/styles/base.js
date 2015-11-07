@@ -14,5 +14,11 @@ module.exports = StyleSheet.create({
     padding: 10,
     paddingTop: 74,
     flex: 1
+  },
+  input: {
+    padding: 4,
+    width: 120,
+    height: 30,
+    borderWidth: 1
   }
 });
