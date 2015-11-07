@@ -16,11 +16,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return <View style={baseStyles.center}>
-      <Button onPress={this.loginToUber}>
-        <Text>Login to Uber</Text>
-      </Button>
-    </View>;
+    return <Button onPress={this.loginToUber}>
+      <Text>Login to Uber</Text>
+    </Button>;
   },
 
   loginToUber: function() {
