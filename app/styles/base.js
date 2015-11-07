@@ -41,7 +41,7 @@ module.exports = StyleSheet.create({
     color: "#ffffff",
     fontWeight: "800",
     paddingLeft: 60,
-    width: 360
+    width: 300
   },
   logo: {
     position: 'absolute',

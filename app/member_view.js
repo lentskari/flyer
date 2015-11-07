@@ -20,8 +20,8 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       currentLocation: {},
-      bookingNumber: "680297686",
-      address: "Kullervonkatu 22" || this.props.route.props.address
+      bookingNumber: "",
+      address: this.props.route.props.address
     };
   },
 
@@ -37,7 +37,7 @@ module.exports = React.createClass({
       <View>
         <Image source={require('image!senaatti1')} style={baseStyles.backgroundImage} resizeMode='cover' />
         <Logo/>
-        <Text style={baseStyles.goText}>What is your frequent flyer number?</Text>
+        <Text style={baseStyles.goText}>What is your booking reference?</Text>
         <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginTop: 30, marginLeft: 60, borderBottomColor: "#ffffff"}}>
           <TextInput
             placeholder="Number"

@@ -19,8 +19,6 @@ module.exports = React.createClass({
     var props = this.props.route.props;
     var flight = props.next.flight
     var duration = moment(flight.arrival_time).subtract(flight.departure_time).utc()
-    console.log(duration);
-    console.log(props);
     return (
       <View>
         <Image source={require('image!clouds')} style={baseStyles.backgroundImage} resizeMode='cover' />
