@@ -20,8 +20,8 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       currentLocation: {},
-      bookingNumber: "",
-      address: this.props.route.props.address
+      bookingNumber: "680297686",
+      address: "Kullervonkatu 22" || this.props.route.props.address
     };
   },
 
@@ -83,7 +83,27 @@ module.exports = React.createClass({
     }).then((responseText) => {
       var body = JSON.parse(responseText);
       console.log(body)
-      this.props.onForward(body);
+      lat = this.state.currentLocation.lat
+      lon = this.state.currentLocation.lon
+      latLon=`lon=${lon}&lat=${lat}`
+      url = `http://api.steward.dev/journeys/${body.id}?${latLon}`
+      console.log(url)
+      fetch(url, {
+        method: 'get',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }).then((response) => {
+        return response.text();
+      }).then((journeyResp) => {
+        console.log(journeyResp)
+        var journey = JSON.parse(journeyResp);
+        journey["final_address"] = this.state.address
+        this.props.onForward(journey);
+      }).catch((error) => {
+        console.log(error);
+      })
     }).catch((error) => {
       console.log(error)
       AlertIOS.alert("Error error");

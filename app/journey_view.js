@@ -1,4 +1,5 @@
 var React = require('react-native');
+var moment = require('moment');
 var baseStyles = require('./styles/base');
 var Logo = require('./logo_view');
 var Icon = require('./icon_view');
@@ -15,6 +16,11 @@ var FlightInfo = require('./flight_info_view')
 
 module.exports = React.createClass({
   render: function() {
+    var props = this.props.route.props;
+    var flight = props.next.flight
+    var duration = moment(flight.arrival_time).subtract(flight.departure_time).utc()
+    console.log(duration);
+    console.log(props);
     return (
       <View>
         <Image source={require('image!clouds')} style={baseStyles.backgroundImage} resizeMode='cover' />
@@ -26,13 +32,24 @@ module.exports = React.createClass({
           marginRight: 30,
         }}>
           <View style={{flex: 1, flexDirection: 'column'}}>
-            <TimedLocation address="5 Avenue Anatole, Paris" time="12.00" />
+            <TimedLocation
+              address={props.current_address}
+              time={moment().format("hh:mm")}
+            />
             <Orderables />
-            <TimedLocation address="Paris Charles de Gaulle Airport" time="12.20" />
-            <FlightInfo flightNumber="AY 880" duration="2h 55min" />
-            <TimedLocation address="Vantaa, Helsinki Vantaa Airport" time="12.20" />
+            <TimedLocation
+              address={props.next.origin_airport.name}
+              time={moment(props.next.flight.departure_time).utc().format("hh:mm")}
+            />
+            <FlightInfo
+              flightNumber="AY 880"
+              duration={`${duration.format('h')}h ${duration.format('mm')}min `} />
+            <TimedLocation
+              address={props.next.destination_airport.name}
+              time={moment(props.next.flight.arrival_time).utc().format("hh:mm")}
+            />
             <Orderables />
-            <TimedLocation address="Senaatintori, Helsinki" time="12.20" />
+            <TimedLocation address={props.final_address} time="" />
           </View>
         </View>
       </View>
