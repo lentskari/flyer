@@ -13,6 +13,7 @@ var {
   Text,
   TextInput,
   AlertIOS
+  Image
 } = React;
 
 module.exports = React.createClass({
@@ -33,7 +34,10 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return <View style={baseStyles.scene}>
+    return <View>
+      <View style={baseStyles.backgroundWrapper}>
+        <Image source={require('image!senaatti')} style={baseStyles.backgroundImage} resizeMode='cover' />
+      </View>
       <View style={{flexDirection: 'row', height: 60, padding: 10}}>
         <Text style={{marginRight: 4}}>From:</Text>
         <TextInput
