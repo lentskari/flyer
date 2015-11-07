@@ -49,11 +49,10 @@ module.exports = React.createClass({
   },
 
   submitJourney: function() {
-    console.log(this.state);
-    this.props.navigator.push({
-      title: "Your route",
-      component: JourneyView
-    });
+    // this.props.navigator.push({
+    //   title: "Your route",
+    //   component: JourneyView
+    // });
   }
 
 });

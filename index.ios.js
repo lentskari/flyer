@@ -5,12 +5,14 @@ var UberConnect = require('./app/uber_connect');
 var InfoView = require('./app/info_view');
 var Geolocation = require('./app/lib/geolocation');
 
+SCENES = ["infoview", "journey"]
+
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-  NavigatorIOS
+  Navigator
 } = React;
 
 var flyer = React.createClass({
@@ -32,13 +34,53 @@ var flyer = React.createClass({
     this.geolocation.unregisterLocationWatches();
   },
 
+  renderScene: function (route, nav) {
+    var Component = null;
+    switch (route.id) {
+      case "journey":
+        Component = JourneyView;
+      default:
+        Component = InfoView;
+    }
+    return (
+      <View>
+        <Component
+          navigator={nav}
+          route={route}
+          onForward={() => {
+            console.log("FORWARD")
+            var nextIndex = route.index + 1
+            nav.push({
+              name: SCENES[nextIndex],
+              index: nextIndex,
+            })
+          }}
+          onBack={() => {
+            console.log("BACKWARD", route.index, route.name)
+            if (route.index > 0) {
+              nav.pop()
+            }
+          }}
+        />
+      </View>
+    );
+  },
   render: function() {
-    return <NavigatorIOS
+    return <Navigator
       style={{flex: 1}}
       initialRoute={{
         component: InfoView,
-        title: "Input your information"
-      }} />;
+        index: 0,
+        name: SCENES[0],
+      }}
+      renderScene={this.renderScene}
+      configureScene={(route) => {
+        if (route.sceneConfig) {
+          return route.sceneConfig
+        }
+        return Navigator.SceneConfigs.FloatFromRight
+        }}
+    />;
   },
 
   getCurrentLocation: function() {
