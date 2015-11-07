@@ -7,6 +7,7 @@ var JourneyView = require('./journey_view');
 var baseStyles = require('./styles/base');
 
 var Geolocation = require('./lib/geolocation');
+var Logo = require('./logo_view');
 
 var {
   View,
@@ -22,7 +23,8 @@ module.exports = React.createClass({
       fromText: "Current location",
       toText: "",
       bookingNumber: "",
-      currentLocation: {}
+      currentLocation: {},
+      address: ""
     };
   },
 
@@ -34,34 +36,28 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return <View>
-      <View style={baseStyles.backgroundWrapper}>
-        <Image source={require('image!senaatti1')} style={baseStyles.backgroundImage} resizeMode='cover' />
-      </View>
-      <View style={{flexDirection: 'row', height: 60, padding: 10}}>
-        <Text style={{marginRight: 4}}>From:</Text>
+    return <View style={{}}>
+      <Image source={require('image!eiffel-tower')} style={baseStyles.backgroundImage} resizeMode='cover' />
+      <Logo />
+      <Text style={baseStyles.goText}>I want to go to</Text>
+      <View style={{flexDirection: 'row', height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginRight: 60, marginBottom: 210, borderBottomColor: "#ffffff"}}>
         <TextInput
-          clearTextOnFocus={true}
+          placeholder="Destination"
+          placeholderTextColor="#ffffff"
           style={[baseStyles.input, { flex: 0.8 }]}
-          onChangeText={(text) => this.setState({fromText: text})}
-          value={this.state.fromText}/>
+          onChangeText={(text) => this.setState({address: text})}
+          value={this.state.address}
+          onSubmitEditing={() => {this.props.onForward({address: this.state.address})}}
+        />
       </View>
-      <View style={{flexDirection: 'row', height: 60, padding: 10}}>
-        <Text style={{marginRight: 4}}>To:</Text>
-        <TextInput
-          style={[baseStyles.input, { flex: 0.8 }]}
-          onChangeText={(text) => this.setState({toText: text})}
-          value={this.state.toText}/>
-      </View>
-      <View style={{flexDirection: 'row', height: 60, padding: 10}}>
-        <Text style={{marginRight: 4}}>Booking Number:</Text>
-        <TextInput
-          style={[baseStyles.input, { flex: 0.8 }]}
-          onChangeText={(text) => this.setState({bookingNumber: text})}
-          value={this.state.bookingNumber}
-          returnKeyType="done"
-          onSubmitEditing={this.submitJourney}/>
-      </View>
+      <Text style={{
+        position: 'absolute',
+        color: "#ffffff",
+        marginLeft: 70,
+        bottom: 0
+      }}>
+        Change my current location!
+      </Text>
     </View>;
   },
 

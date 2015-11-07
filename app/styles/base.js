@@ -11,9 +11,9 @@ module.exports = StyleSheet.create({
     alignItems: 'center'
   },
   scene: {
-    padding: 10,
-    paddingTop: 74,
-    flex: 1
+    flex: 1,
+    position: 'absolute',
+    top: 0
   },
   infoView: {
     backgroundColor: '#dddddd',
@@ -21,21 +21,34 @@ module.exports = StyleSheet.create({
     paddingTop: 74,
     flex: 1
   },
-  backgroundWrapper: {
+  backgroundImage: {
     position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
     right: 0
   },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover'
-  },
   input: {
-    padding: 4,
-    width: 120,
     height: 30,
-    borderWidth: 1
+    borderWidth: 0,
+    borderColor: "#ffffff",
+    color: "#ffffff",
+  },
+  goText: {
+    fontFamily: 'Avenir',
+    fontSize: 30,
+    color: "#ffffff",
+    fontWeight: "800",
+    paddingLeft: 60
+  },
+  logo: {
+    paddingTop: 20,
+    paddingLeft: 90,
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontFamily: 'Avenir',
+    fontSize: 60,
+    fontWeight: "900",
+    color: "#ffffff"
   }
 });

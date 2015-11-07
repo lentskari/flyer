@@ -16,6 +16,7 @@ var {
 } = React;
 
 var JourneyView = require('./app/journey_view')
+var Logo = require('./app/logo_view')
 
 var flyer = React.createClass({
   getInitialState: function() {
@@ -41,20 +42,18 @@ var flyer = React.createClass({
     return (
       <View>
         <Component
+          props={route.props}
           navigator={nav}
           route={route}
-          onForward={() => {
-            console.log("FORWARD");
-            console.log(SCENES[nextIndex])
-            console.log(nextIndex)
+          onForward={(nextProps) => {
             var nextIndex = route.index + 1;
             nav.push({
               name: SCENES[nextIndex],
               index: nextIndex,
+              props: nextProps
             })
           }}
           onBack={() => {
-            console.log("BACKWARD", route.index, route.name)
             if (route.index > 0) {
               nav.pop()
             }
