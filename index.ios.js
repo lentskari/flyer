@@ -15,6 +15,8 @@ var {
   Navigator
 } = React;
 
+var JourneyView = require('./app/journey_view')
+
 var flyer = React.createClass({
   getInitialState: function() {
     return {
@@ -24,15 +26,18 @@ var flyer = React.createClass({
 
   renderScene: function (route, nav) {
     var Component = null;
-    console.log("route", route);
-    console.log(route.index);
-    switch (route.id) {
+    console.log("ROUTE", route.name);
+    switch (route.name) {
       case "journey":
         Component = JourneyView;
         break;
-      default:
+      case "infoview":
         Component = InfoView;
+        break;
+      default:
+        Component = View
     }
+
     return (
       <View>
         <Component
@@ -40,6 +45,8 @@ var flyer = React.createClass({
           route={route}
           onForward={() => {
             console.log("FORWARD");
+            console.log(SCENES[nextIndex])
+            console.log(nextIndex)
             var nextIndex = route.index + 1;
             nav.push({
               name: SCENES[nextIndex],

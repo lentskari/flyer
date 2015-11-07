@@ -12,7 +12,7 @@ var {
   View,
   Text,
   TextInput,
-  AlertIOS
+  AlertIOS,
   Image
 } = React;
 
@@ -36,7 +36,7 @@ module.exports = React.createClass({
   render: function() {
     return <View>
       <View style={baseStyles.backgroundWrapper}>
-        <Image source={require('image!senaatti')} style={baseStyles.backgroundImage} resizeMode='cover' />
+        <Image source={require('image!senaatti1')} style={baseStyles.backgroundImage} resizeMode='cover' />
       </View>
       <View style={{flexDirection: 'row', height: 60, padding: 10}}>
         <Text style={{marginRight: 4}}>From:</Text>
@@ -91,12 +91,7 @@ module.exports = React.createClass({
   },
 
   navigateToJourneyView: function(customer) {
-    console.log(customer);
     this.props.onForward();
-    this.props.navigator.push({
-      title: "Your route",
-      component: JourneyView
-    });
   }
 
 });
