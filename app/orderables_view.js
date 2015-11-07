@@ -3,7 +3,8 @@ var React = require('react-native');
 var {
   View,
   Text,
-  Image
+  Image,
+  AlertIOS
 } = React;
 
 var Button = require('react-native-button');
@@ -31,27 +32,36 @@ module.exports = React.createClass({
         }}
         >
           <View>
-            <Button>
+            <Button onPress={this.uberSelected}>
               <Image style={{width: 52, marginRight: 5}} source={require('image!uber_button1')}/>
             </Button>
           </View>
           <View>
-            <Button>
+            <Button onPress={this.alertComing}>
               <Image style={{width: 52, marginRight: 5}} source={require('image!bus_button1')}/>
             </Button>
           </View>
           <View>
-            <Button>
+            <Button onPress={this.alertComing}>
               <Image style={{width: 52, marginRight: 5}} source={require('image!taxi_button1')}/>
             </Button>
           </View>
           <View>
-            <Button>
+            <Button onPress={this.alertComing}>
               <Image style={{width: 52}} source={require('image!car_button1')}/>
             </Button>
           </View>
         </View>
       </View>
     );
+  },
+
+  uberSelected: function() {
+
+  },
+
+  alertComing: function() {
+    AlertIOS.alert("The transportation method coming soon!");
   }
+
 });
