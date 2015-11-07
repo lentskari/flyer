@@ -2,6 +2,7 @@ var React = require('react-native');
 
 var baseStyles = require('./app/styles/base');
 var UberConnect = require('./app/uber_connect');
+var InfoView = require('./app/info_view');
 var Geolocation = require('./app/lib/geolocation');
 
 var {
@@ -9,6 +10,7 @@ var {
   StyleSheet,
   Text,
   View,
+  NavigatorIOS
 } = React;
 
 var flyer = React.createClass({
@@ -31,10 +33,12 @@ var flyer = React.createClass({
   },
 
   render: function() {
-    return <View style={baseStyles.center}>
-      <Text>My location is: {this.state.myLocation.lat}:{this.state.myLocation.lon}</Text>
-      <UberConnect />
-    </View>;
+    return <NavigatorIOS
+      style={{flex: 1}}
+      initialRoute={{
+        component: InfoView,
+        title: "Input your information"
+      }} />;
   },
 
   getCurrentLocation: function() {
