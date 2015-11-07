@@ -87,8 +87,8 @@ module.exports = React.createClass({
   },
 
   navigateToJourneyView: function(customer) {
-    console.log("DO SOMETHING WITH CUSTOMER");
     console.log(customer);
+    this.props.onForward();
     this.props.navigator.push({
       title: "Your route",
       component: JourneyView

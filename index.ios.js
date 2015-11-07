@@ -5,7 +5,7 @@ var UberConnect = require('./app/uber_connect');
 var InfoView = require('./app/info_view');
 var Geolocation = require('./app/lib/geolocation');
 
-SCENES = ["infoview", "journey"]
+SCENES = ["infoview", "journey"];
 
 var {
   AppRegistry,
@@ -22,23 +22,14 @@ var flyer = React.createClass({
     };
   },
 
-  componentDidMount: function() {
-    this.geolocation = new Geolocation();
-    this.getCurrentLocation();
-    this.geolocation.watchLocation((location) => {
-      this.setState({ myLocation: location });
-    });
-  },
-
-  componentWillUnmount: function() {
-    this.geolocation.unregisterLocationWatches();
-  },
-
   renderScene: function (route, nav) {
     var Component = null;
+    console.log("route", route);
+    console.log(route.index);
     switch (route.id) {
       case "journey":
         Component = JourneyView;
+        break;
       default:
         Component = InfoView;
     }
@@ -48,8 +39,8 @@ var flyer = React.createClass({
           navigator={nav}
           route={route}
           onForward={() => {
-            console.log("FORWARD")
-            var nextIndex = route.index + 1
+            console.log("FORWARD");
+            var nextIndex = route.index + 1;
             nav.push({
               name: SCENES[nextIndex],
               index: nextIndex,
@@ -82,14 +73,6 @@ var flyer = React.createClass({
         }}
     />;
   },
-
-  getCurrentLocation: function() {
-    this.geolocation.getCurrentPosition().then((position) => {
-      this.setState({ myLocation: position });
-    }).catch((error) => {
-      console.log("ERROR", error);
-    });
-  }
 });
 
 var styles = StyleSheet.create({
