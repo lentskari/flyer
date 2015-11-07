@@ -21,6 +21,13 @@ var flyer = React.createClass({
   componentDidMount: function() {
     this.geolocation = new Geolocation();
     this.getCurrentLocation();
+    this.geolocation.watchLocation((location) => {
+      this.setState({ myLocation: location });
+    });
+  },
+
+  componentWillUnmount: function() {
+    this.geolocation.unregisterLocationWatches();
   },
 
   render: function() {
@@ -32,7 +39,6 @@ var flyer = React.createClass({
 
   getCurrentLocation: function() {
     this.geolocation.getCurrentPosition().then((position) => {
-      console.log(position);
       this.setState({ myLocation: position });
     }).catch((error) => {
       console.log("ERROR", error);

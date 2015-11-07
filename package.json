@@ -8,6 +8,7 @@
   "dependencies": {
     "bluebird": "^3.0.5",
     "react-native": "^0.13.2",
-    "react-native-button": "^1.2.1"
+    "react-native-button": "^1.2.1",
+    "underscore": "^1.8.3"
   }
 }
