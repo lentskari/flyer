@@ -3,9 +3,10 @@ var React = require('react-native');
 var baseStyles = require('./app/styles/base');
 var UberConnect = require('./app/uber_connect');
 var InfoView = require('./app/info_view');
+var MemberView = require('./app/member_view');
 var Geolocation = require('./app/lib/geolocation');
 
-SCENES = ["infoview", "journey"];
+SCENES = ["infoview", "memberview", "journey"];
 
 var {
   AppRegistry,
@@ -29,11 +30,14 @@ var flyer = React.createClass({
     var Component = null;
     console.log("ROUTE", route.name);
     switch (route.name) {
+      case "infoview":
+        Component = InfoView;
+        break;
       case "journey":
         Component = JourneyView;
         break;
-      case "infoview":
-        Component = InfoView;
+      case "memberview":
+        Component = MemberView
         break;
       default:
         Component = View

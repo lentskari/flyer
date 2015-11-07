@@ -39,7 +39,8 @@ module.exports = StyleSheet.create({
     fontSize: 30,
     color: "#ffffff",
     fontWeight: "800",
-    paddingLeft: 60
+    paddingLeft: 60,
+    width: 360
   },
   logo: {
     paddingTop: 20,
@@ -50,5 +51,15 @@ module.exports = StyleSheet.create({
     fontSize: 60,
     fontWeight: "900",
     color: "#ffffff"
+  },
+  button: {
+    color: "#ffffff",
+    borderRadius: 20,
+    borderWidth: 1,
+    paddingTop: 8,
+    paddingBottom: 8,
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderColor: "#ffffff"
   }
 });

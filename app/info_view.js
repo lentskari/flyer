@@ -61,31 +61,6 @@ module.exports = React.createClass({
     </View>;
   },
 
-  submitJourney: function() {
-    if (_.isEmpty(this.state.currentLocation)) {
-      return AlertIOS.alert("Current locatiot not found yet :(");
-    }
-
-    if (_.isEmpty(this.state.bookingNumber) || _.isNaN(Number(this.state.bookingNumber))) {
-      return AlertIOS.alert("Member Number is missing or isn't number");
-    }
-    fetch('http://api.steward.dev/customers', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ "member_number": Number(this.state.bookingNumber)})
-    }).then((response) => {
-      return response.text();
-    }).then((responseText) => {
-      var body = JSON.parse(responseText);
-      this.navigateToJourneyView(body);
-    }).catch((error) => {
-      AlertIOS.alert("Error error");
-    });
-  },
-
   navigateToJourneyView: function(customer) {
     this.props.onForward();
   }
