@@ -11,6 +11,10 @@ var {
 var Button = require('react-native-button');
 
 module.exports = React.createClass({
+  propTypes: {
+    onUberConnected: React.PropTypes.func
+  },
+
   componentDidMount: function() {
     LinkingIOS.addEventListener('url', this.handleRedirect);
   },
@@ -24,8 +28,8 @@ module.exports = React.createClass({
   loginToUber: function() {
     var type = "code";
     var clientId  = env.uberClientId;
-    var scopes = "profile request";
-    var url = `https://login.uber.com/oauth/v2/authorize?response_type=${type}&client_id=${clientId}&scopes=${scopes}`;
+    var scopes = "profile%20request";
+    var url = `https://login.uber.com/oauth/v2/authorize?response_type=${type}&client_id=${clientId}&scope=${scopes}`;
     LinkingIOS.openURL(url);
   },
 
@@ -33,10 +37,11 @@ module.exports = React.createClass({
     var url = event.url;
     this.postAuthorizationCodeToServer(url.split("?code=")[1]); // Ugly :(
     LinkingIOS.removeEventListener('url', this.handleRedirect);
+    if (this.props.onUberConnected)
+      this.props.onUberConnected();
   },
 
   postAuthorizationCodeToServer: function(code) {
-    console.log(code);
     fetch('http://api.steward.dev/customers/1/uber_access', {
       method: 'post',
       headers: {
