@@ -10,7 +10,7 @@ var {
 var Button = require('react-native-button');
 
 module.exports = React.createClass({
-  render: function() {
+  renderOrdelable: function() {
     return (
       <View>
         <View
@@ -54,6 +54,10 @@ module.exports = React.createClass({
         </View>
       </View>
     );
+  },
+
+  render: function() {
+    return this.renderOrdelable();
   },
 
   uberSelected: function() {
