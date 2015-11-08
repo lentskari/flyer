@@ -1,5 +1,7 @@
 var React = require('react-native');
 
+var Geolocation = require('./lib/geolocation');
+
 var {
   View,
   Text,
@@ -10,6 +12,10 @@ var {
 var Button = require('react-native-button');
 
 module.exports = React.createClass({
+  getInitialState: function() {
+    return { uber: false };
+  },
+
   renderOrdelable: function() {
     return (
       <View>
@@ -57,11 +63,46 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return this.renderOrdelable();
+    var orderedUber = this.state.uber;
+    if (orderedUber) {
+      return <View>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: 10
+          }}
+        >
+          <Text style={{color: "#e92e2f", }}>Uber ordered!</Text>
+        </View>
+      </View>;
+    } else {
+      return this.renderOrdelable();
+    }
   },
 
   uberSelected: function() {
-
+    new Geolocation().getCurrentLocation().then((location) => {
+      console.log(this.props.originAirport);
+      return fetch('http://api.steward.dev/uber/ride', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          start_lat: location.lat,
+          start_lon: location.lon,
+          end_lat: this.props.originAirport.latitude,
+          end_lon: this.props.originAirport.longitude
+        })
+      }).then((response) => {
+        return response.text();
+      }).then((uberResp) => {
+        this.setState({uber: uberResp});
+      });
+    }).catch((error) => console.log(error));
   },
 
   alertComing: function() {
