@@ -37,7 +37,7 @@ module.exports = React.createClass({
 
   renderMemberView: function() {
     if (this.state.loading) {
-      return <Image source={require('image!progress_animation')} style={{
+      return <Image source={require('image!white_progress')} style={{
           marginLeft: 140,
           width: 51,
           height: 51,
@@ -46,7 +46,7 @@ module.exports = React.createClass({
     } else {
       return <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginTop: 20, borderBottomColor: "#ffffff"}}>
         <TextInput
-          placeholder="Number"
+          placeholder="Booking reference"
           returnKeyType="done"
           keyboardType="numbers-and-punctuation"
           placeholderTextColor="#ffffff"
