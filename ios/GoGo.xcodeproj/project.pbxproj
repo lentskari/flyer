@@ -26,6 +26,7 @@
 		724A71301BEEB0D20019CF9E /* car_button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A712C1BEEB0D20019CF9E /* car_button1.png */; };
 		724A71311BEEB0D20019CF9E /* taxi_button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A712D1BEEB0D20019CF9E /* taxi_button1.png */; };
 		724A71321BEEB0D20019CF9E /* uber_button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A712E1BEEB0D20019CF9E /* uber_button1.png */; };
+		724A71381BEEC5C60019CF9E /* splash_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 724A71371BEEC5C60019CF9E /* splash_big.png */; };
 		72CD3AEA1BEE476400467953 /* eiffel-tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CD3AE81BEE476400467953 /* eiffel-tower.png */; };
 		72CD3B0F1BEE5BC700467953 /* senaatti1.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CD3B0E1BEE5BC700467953 /* senaatti1.png */; };
 		72CD3B111BEE5C0200467953 /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CD3B101BEE5C0200467953 /* clouds.png */; };
@@ -119,12 +120,12 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* flyerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flyerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* GoGo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoGo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* flyerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flyerTests.m; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* flyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* GoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = flyer/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = flyer/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 		724A712C1BEEB0D20019CF9E /* car_button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_button1.png; sourceTree = "<group>"; };
 		724A712D1BEEB0D20019CF9E /* taxi_button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taxi_button1.png; sourceTree = "<group>"; };
 		724A712E1BEEB0D20019CF9E /* uber_button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uber_button1.png; sourceTree = "<group>"; };
+		724A71371BEEC5C60019CF9E /* splash_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_big.png; sourceTree = "<group>"; };
 		72CD3AE81BEE476400467953 /* eiffel-tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eiffel-tower.png"; sourceTree = SOURCE_ROOT; };
 		72CD3B0E1BEE5BC700467953 /* senaatti1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = senaatti1.png; sourceTree = "<group>"; };
 		72CD3B101BEE5C0200467953 /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				724A712C1BEEB0D20019CF9E /* car_button1.png */,
 				724A712D1BEEB0D20019CF9E /* taxi_button1.png */,
 				724A712E1BEEB0D20019CF9E /* uber_button1.png */,
+				724A71371BEEC5C60019CF9E /* splash_big.png */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -321,8 +324,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* flyer.app */,
-				00E356EE1AD99517003FC87E /* flyerTests.xctest */,
+				13B07F961A680F5B00A75B9A /* GoGo.app */,
+				00E356EE1AD99517003FC87E /* GoGo.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,9 +333,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* flyerTests */ = {
+		00E356ED1AD99517003FC87E /* GoGoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "flyerTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "GoGoTests" */;
 			buildPhases = (
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
@@ -343,14 +346,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = flyerTests;
+			name = GoGoTests;
 			productName = flyerTests;
-			productReference = 00E356EE1AD99517003FC87E /* flyerTests.xctest */;
+			productReference = 00E356EE1AD99517003FC87E /* GoGo.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* flyer */ = {
+		13B07F861A680F5B00A75B9A /* GoGo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "flyer" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "GoGo" */;
 			buildPhases = (
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -360,9 +363,9 @@
 			);
 			dependencies = (
 			);
-			name = flyer;
+			name = GoGo;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* flyer.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* GoGo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -380,7 +383,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "flyer" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "GoGo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -435,8 +438,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* flyer */,
-				00E356ED1AD99517003FC87E /* flyerTests */,
+				13B07F861A680F5B00A75B9A /* GoGo */,
+				00E356ED1AD99517003FC87E /* GoGoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -526,6 +529,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724A71381BEEC5C60019CF9E /* splash_big.png in Resources */,
 				724A712F1BEEB0D20019CF9E /* bus_button1.png in Resources */,
 				72CD3AEA1BEE476400467953 /* eiffel-tower.png in Resources */,
 				724A71311BEEB0D20019CF9E /* taxi_button1.png in Resources */,
@@ -564,7 +568,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* flyer */;
+			target = 13B07F861A680F5B00A75B9A /* GoGo */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -597,8 +601,8 @@
 				INFOPLIST_FILE = flyerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flyer.app/flyer";
+				PRODUCT_NAME = GoGo;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoGo.app/GoGo";
 			};
 			name = Debug;
 		};
@@ -614,8 +618,8 @@
 				INFOPLIST_FILE = flyerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flyer.app/flyer";
+				PRODUCT_NAME = GoGo;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoGo.app/GoGo";
 			};
 			name = Release;
 		};
@@ -633,7 +637,7 @@
 				INFOPLIST_FILE = flyer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = flyer;
+				PRODUCT_NAME = GoGo;
 			};
 			name = Debug;
 		};
@@ -650,7 +654,7 @@
 				INFOPLIST_FILE = flyer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = flyer;
+				PRODUCT_NAME = GoGo;
 			};
 			name = Release;
 		};
@@ -743,7 +747,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "flyerTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "GoGoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -752,7 +756,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "flyer" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "GoGo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -761,7 +765,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "flyer" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "GoGo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
