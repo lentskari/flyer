@@ -21,7 +21,7 @@ module.exports = React.createClass({
           <Text style={{fontFamily: 'Avenir-Medium'}}>o</Text>
         </View>
         <View style={{width: 200}}>
-          <Text style={{fontSize: 18, fontFamily: 'Avenir-Medium'}}>{this.props.address}</Text>
+          <Text style={{fontSize: 16, fontFamily: 'Avenir-Medium'}}>{this.props.address}</Text>
         </View>
       </View>
     );

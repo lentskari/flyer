@@ -1,5 +1,7 @@
 var React = require('react-native');
 
+var baseStyles = require('./styles/base');
+
 var Geolocation = require('./lib/geolocation');
 
 var {
@@ -69,19 +71,54 @@ module.exports = React.createClass({
   },
 
   renderUber: function(uber) {
-    console.log(uber);
-    var uberText = "Uber ordered!";
+    var uberText = uber.driver ? "Driver is arriving now" : "Uber ordered!";
     return <View>
       <View
           style={{
             flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
             marginTop: 10,
-            marginBottom:10
+            marginBottom:10,
           }}>
-          <Text style={{color: "#e92e2f", }}>{uberText}</Text>
+          <View style={{
+            flexDirection: 'row' }}>
+            <Image style={{width: 27}} source={require('image!uber_icon')}/>
+            <View style={{width: 8, marginTop: 2, marginLeft: 17, marginRight: 8}}>
+              <Text style={{fontFamily: 'Avenir-Medium'}}>o</Text>
+            </View>
+            <Text style={{color: "#e92e2f", marginTop: 4}}>{uberText}</Text>
+          </View>
+          {this.renderUberDriver(uber)}
         </View>
+    </View>;
+  },
+
+  renderUberDriver: function(uber) {
+    if (!uber.driver || !uber.vehicle) return;
+    console.log("Got uber and driver");
+    console.log(uber);
+    return <View style={{marginLeft: 60}}>
+      <View style={{
+        marginTop: 5,
+        flexDirection: 'row' }}>
+        <Text style={{
+          fontFamily: 'Avenir-Black',
+          fontSize: 13,
+          width: 100 }}>{uber.driver.name.toUpperCase()}</Text>
+        <Text style={{
+          fontFamily: 'Avenir-Black',
+          fontSize: 13 }}>{uber.driver.rating} STARS</Text>
+      </View>
+      <View style={{
+        marginTop: 5,
+        flexDirection: 'row' }}>
+        <Text style={{
+          width: 100,
+          fontFamily: 'Avenir-Black',
+          fontSize: 13 }}>{`${uber.vehicle.make.toUpperCase()} ${uber.vehicle.model.toUpperCase()}`}</Text>
+      <Text style={{
+        fontFamily: 'Avenir-Black',
+        fontSize: 13}}>{uber.vehicle.license_plate}</Text>
+      </View>
     </View>;
   },
 
@@ -132,8 +169,7 @@ module.exports = React.createClass({
         return response.text();
       }).then((uberResponse) => {
         var uberJson = JSON.parse(uberResponse);
-        console.log("Got uber response");
-        console.log(uberJson);
+        this.setState({uber: uberJson});
       }).catch((error) => console.log(error));
     }, 3000);
   },
