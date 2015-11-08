@@ -16,6 +16,12 @@ module.exports = React.createClass({
     return { uber: false };
   },
 
+  componentWillUnmount: function() {
+    if(this.uberPollId) {
+      clearInterval(this.uberPollId);
+    }
+  },
+
   renderOrdelable: function() {
     return (
       <View>
@@ -62,21 +68,27 @@ module.exports = React.createClass({
     );
   },
 
-  render: function() {
-    var orderedUber = this.state.uber;
-    if (orderedUber) {
-      return <View>
-        <View
+  renderUber: function(uber) {
+    console.log(uber);
+    var uberText = "Uber ordered!";
+    return <View>
+      <View
           style={{
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop: 10
-          }}
-        >
-          <Text style={{color: "#e92e2f", }}>Uber ordered!</Text>
+            marginTop: 10,
+            marginBottom:10
+          }}>
+          <Text style={{color: "#e92e2f", }}>{uberText}</Text>
         </View>
-      </View>;
+    </View>;
+  },
+
+  render: function() {
+    var orderedUber = this.state.uber;
+    if (orderedUber) {
+      return this.renderUber(this.state.uber);
     } else {
       return this.renderOrdelable();
     }
@@ -100,9 +112,30 @@ module.exports = React.createClass({
       }).then((response) => {
         return response.text();
       }).then((uberResp) => {
-        this.setState({uber: uberResp});
+        this.setState({uber: JSON.parse(uberResp)});
+        this.pollUberStatus();
       });
     }).catch((error) => console.log(error));
+  },
+
+  pollUberStatus: function() {
+    this.uberPollId = setInterval(() => {
+      if (!this.state.uber) return;
+      var uber = this.state.uber;
+      fetch(`http://api.steward.dev/uber/ride/${uber.request_id}`, {
+        method: 'get',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }).then((response) => {
+        return response.text();
+      }).then((uberResponse) => {
+        var uberJson = JSON.parse(uberResponse);
+        console.log("Got uber response");
+        console.log(uberJson);
+      }).catch((error) => console.log(error));
+    }, 3000);
   },
 
   alertComing: function() {
