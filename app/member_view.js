@@ -40,7 +40,7 @@ module.exports = React.createClass({
         <Image source={require('image!senaatti1')} style={baseStyles.backgroundImage} resizeMode='cover' />
         <Logo/>
         <Text style={baseStyles.goText}>What is your booking reference?</Text>
-        <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginTop: 30, marginLeft: 60, borderBottomColor: "#ffffff"}}>
+        <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, borderBottomColor: "#ffffff"}}>
           <TextInput
             placeholder="Number"
             placeholderTextColor="#ffffff"
@@ -54,7 +54,7 @@ module.exports = React.createClass({
           <Button
             style={[
               baseStyles.button,
-              { marginTop: 50, marginLeft: 75 }
+              { marginTop: 20, marginLeft: 75 }
             ]}
             onPress={this.submitJourney}
           >
