@@ -54299,6 +54299,7 @@ React.createElement(Logo,null),
 React.createElement(Text,{style:baseStyles.goText},'I want to go to'),
 React.createElement(View,{style:{flexDirection:'row',height:30,padding:0,borderBottomWidth:1,marginLeft:60,marginRight:60,marginBottom:210,borderBottomColor:"#ffffff"}},
 React.createElement(TextInput,{
+returnKeyType:'next',
 placeholder:'Destination',
 placeholderTextColor:'#ffffff',
 style:[baseStyles.input,{flex:0.8}],
@@ -64706,25 +64707,15 @@ React.createElement(View,null,
 React.createElement(Image,{source:require('image!senaatti1'),style:baseStyles.backgroundImage,resizeMode:'cover'}),
 React.createElement(Logo,null),
 React.createElement(Text,{style:baseStyles.goText},'What is your booking reference?'),
-React.createElement(View,{style:{flexDirection:'row',width:200,height:30,padding:0,borderBottomWidth:1,marginLeft:60,borderBottomColor:"#ffffff"}},
+React.createElement(View,{style:{flexDirection:'row',width:200,height:30,padding:0,borderBottomWidth:1,marginLeft:60,marginTop:20,borderBottomColor:"#ffffff"}},
 React.createElement(TextInput,{
 placeholder:'Number',
+returnKeyType:'done',
 placeholderTextColor:'#ffffff',
 style:[baseStyles.input,{flex:0.8}],
 onChangeText:function(text){return _this2.setState({bookingNumber:text});},
 value:this.state.bookingNumber,
-onSubmitEditing:this.submitJourney})),
-
-
-React.createElement(View,{style:{flexDirection:'row'}},
-React.createElement(Button,{
-style:[
-baseStyles.button,
-{marginTop:20,marginLeft:75}],
-
-onPress:this.submitJourney},'Find me a route!'))));},
-
-
+onSubmitEditing:this.submitJourney}))));},
 
 
 

@@ -40,26 +40,16 @@ module.exports = React.createClass({
         <Image source={require('image!senaatti1')} style={baseStyles.backgroundImage} resizeMode='cover' />
         <Logo/>
         <Text style={baseStyles.goText}>What is your booking reference?</Text>
-        <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, borderBottomColor: "#ffffff"}}>
+        <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginTop: 20, borderBottomColor: "#ffffff"}}>
           <TextInput
             placeholder="Number"
+            returnKeyType="done"
             placeholderTextColor="#ffffff"
             style={[baseStyles.input, { flex: 0.8 }]}
             onChangeText={(text) => this.setState({bookingNumber: text})}
             value={this.state.bookingNumber}
             onSubmitEditing={this.submitJourney}
           />
-        </View>
-        <View style={{flexDirection: 'row'}}>
-          <Button
-            style={[
-              baseStyles.button,
-              { marginTop: 20, marginLeft: 75 }
-            ]}
-            onPress={this.submitJourney}
-          >
-            Find me a route!
-          </Button>
         </View>
       </View>
     );

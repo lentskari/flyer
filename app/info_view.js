@@ -30,6 +30,7 @@ module.exports = React.createClass({
       <Text style={baseStyles.goText}>I want to go to</Text>
       <View style={{flexDirection: 'row', height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginRight: 60, marginBottom: 210, borderBottomColor: "#ffffff"}}>
         <TextInput
+          returnKeyType="next"
           placeholder="Destination"
           placeholderTextColor="#ffffff"
           style={[baseStyles.input, { flex: 0.8 }]}
@@ -38,14 +39,6 @@ module.exports = React.createClass({
           onSubmitEditing={() => {this.props.onForward({address: this.state.address})}}
         />
       </View>
-      <Text style={{
-        position: 'absolute',
-        color: "#ffffff",
-        marginLeft: 70,
-        bottom: 0
-      }}>
-        Change my current location!
-      </Text>
     </View>;
   },
 });
