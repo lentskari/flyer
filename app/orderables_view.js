@@ -16,13 +16,28 @@ var Button = require('react-native-button');
 
 module.exports = React.createClass({
   getInitialState: function() {
-    return { uber: false };
+    return { uber: false, loading: false };
   },
 
   componentWillUnmount: function() {
     if(this.uberPollId) {
       clearInterval(this.uberPollId);
     }
+  },
+
+  uberButton: function() {
+    if (this.state.loading) {
+      return <Image source={require('image!progress_animation')} style={{
+        width: 51,
+        height: 51,
+        marginRight: 5
+      }} />
+    }
+    return <View>
+      <Button onPress={this.uberSelected}>
+        <Image style={{width: 52, marginRight: 5}} source={require('image!uber_button1')}/>
+      </Button>
+    </View>
   },
 
   renderOrdelable: function() {
@@ -46,11 +61,7 @@ module.exports = React.createClass({
           paddingBottom: 20
         }}
         >
-          <View>
-            <Button onPress={this.uberSelected}>
-              <Image style={{width: 52, marginRight: 5}} source={require('image!uber_button1')}/>
-            </Button>
-          </View>
+          {this.uberButton()}
           <View>
             <Button onPress={this.alertComing}>
               <Image style={{width: 52, marginRight: 5}} source={require('image!bus_button1')}/>
@@ -143,6 +154,7 @@ module.exports = React.createClass({
   },
 
   uberSelected: function() {
+    this.setState({loading: true});
     new Geolocation().getCurrentLocation().then((location) => {
       console.log(this.props.originAirport);
       return fetch(`${env.apiHost}/uber/ride`, {
@@ -158,6 +170,7 @@ module.exports = React.createClass({
           end_lon: this.props.originAirport.longitude
         })
       }).then((response) => {
+        this.setState({loading: false});
         return response.text();
       }).then((uberResp) => {
         this.setState({uber: JSON.parse(uberResp)});
