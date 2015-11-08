@@ -23,7 +23,8 @@ module.exports = React.createClass({
     return {
       currentLocation: {},
       bookingNumber: "",
-      address: this.props.route.props.address
+      address: this.props.route.props.address,
+      loading: false
     };
   },
 
@@ -34,24 +35,37 @@ module.exports = React.createClass({
     }).catch((error) => console.log(error));
   },
 
+  renderMemberView: function() {
+    if (this.state.loading) {
+      return <Image source={require('image!progress_animation')} style={{
+          marginLeft: 140,
+          width: 51,
+          height: 51,
+          resizeMode: Image.resizeMode.stretch
+        }} />
+    } else {
+      return <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginTop: 20, borderBottomColor: "#ffffff"}}>
+        <TextInput
+          placeholder="Number"
+          returnKeyType="done"
+          keyboardType="numbers-and-punctuation"
+          placeholderTextColor="#ffffff"
+          style={[baseStyles.input, { flex: 0.8 }]}
+          onChangeText={(text) => this.setState({bookingNumber: text})}
+          value={this.state.bookingNumber}
+          onSubmitEditing={this.submitJourney}
+        />
+      </View>;
+    }
+  },
+
   render: function () {
     return (
       <View>
         <Image source={require('image!senaatti1')} style={baseStyles.backgroundImage} resizeMode='cover' />
         <Logo/>
         <Text style={baseStyles.goText}>What is your booking reference?</Text>
-        <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginTop: 20, borderBottomColor: "#ffffff"}}>
-          <TextInput
-            placeholder="Number"
-            returnKeyType="done"
-            keyboardType="numbers-and-punctuation"
-            placeholderTextColor="#ffffff"
-            style={[baseStyles.input, { flex: 0.8 }]}
-            onChangeText={(text) => this.setState({bookingNumber: text})}
-            value={this.state.bookingNumber}
-            onSubmitEditing={this.submitJourney}
-          />
-        </View>
+        {this.renderMemberView()}
       </View>
     );
   },
@@ -64,6 +78,7 @@ module.exports = React.createClass({
     if (_.isEmpty(this.state.bookingNumber) || _.isNaN(Number(this.state.bookingNumber))) {
       return AlertIOS.alert("Member Number is missing or isn't number");
     }
+    this.setState({loading: true});
     fetch(`${env.apiHost}/customers`, {
       method: 'post',
       headers: {
@@ -72,6 +87,7 @@ module.exports = React.createClass({
       },
       body: JSON.stringify({ "member_number": Number(this.state.bookingNumber)})
     }).then((response) => {
+      this.setState({loading: false});
       return response.text();
     }).then((responseText) => {
       var body = JSON.parse(responseText);

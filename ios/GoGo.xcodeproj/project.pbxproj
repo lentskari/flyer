@@ -33,6 +33,8 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		BA40599F1BEF47DF0088FF3B /* uber_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BA40599E1BEF47DF0088FF3B /* uber_icon.png */; };
 		BA4059AD1BEF54CF0088FF3B /* star_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BA4059AC1BEF54CF0088FF3B /* star_icon.png */; };
+		BA4059AF1BEF69170088FF3B /* gif2.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA4059AE1BEF69170088FF3B /* gif2.gif */; };
+		BA4059B11BEF691D0088FF3B /* progress_animation.png in Resources */ = {isa = PBXBuildFile; fileRef = BA4059B01BEF691D0088FF3B /* progress_animation.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		BA40599E1BEF47DF0088FF3B /* uber_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uber_icon.png; sourceTree = "<group>"; };
 		BA4059AC1BEF54CF0088FF3B /* star_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_icon.png; sourceTree = "<group>"; };
+		BA4059AE1BEF69170088FF3B /* gif2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif2.gif; sourceTree = "<group>"; };
+		BA4059B01BEF691D0088FF3B /* progress_animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_animation.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,7 +263,9 @@
 				724A712B1BEEB0D20019CF9E /* bus_button1.png */,
 				724A712C1BEEB0D20019CF9E /* car_button1.png */,
 				BA40599E1BEF47DF0088FF3B /* uber_icon.png */,
+				BA4059B01BEF691D0088FF3B /* progress_animation.png */,
 				724A712D1BEEB0D20019CF9E /* taxi_button1.png */,
+				BA4059AE1BEF69170088FF3B /* gif2.gif */,
 				BA4059AC1BEF54CF0088FF3B /* star_icon.png */,
 				724A712E1BEEB0D20019CF9E /* uber_button1.png */,
 				724A71371BEEC5C60019CF9E /* splash_big.png */,
@@ -543,6 +549,7 @@
 				72CD3AEA1BEE476400467953 /* eiffel-tower.png in Resources */,
 				724A71311BEEB0D20019CF9E /* taxi_button1.png in Resources */,
 				724A71321BEEB0D20019CF9E /* uber_button1.png in Resources */,
+				BA4059B11BEF691D0088FF3B /* progress_animation.png in Resources */,
 				72CD3B111BEE5C0200467953 /* clouds.png in Resources */,
 				BA40599F1BEF47DF0088FF3B /* uber_icon.png in Resources */,
 				72CD3B0F1BEE5BC700467953 /* senaatti1.png in Resources */,
@@ -550,6 +557,7 @@
 				724A71301BEEB0D20019CF9E /* car_button1.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				BA4059AF1BEF69170088FF3B /* gif2.gif in Resources */,
 				BA4059AD1BEF54CF0088FF3B /* star_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
