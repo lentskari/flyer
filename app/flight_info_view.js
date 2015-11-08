@@ -4,6 +4,7 @@ var React = require('react-native');
 var {
   View,
   Text,
+  Image
 } = React;
 
 module.exports = React.createClass({
@@ -12,12 +13,16 @@ module.exports = React.createClass({
       <View style={{
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'center',
         paddingTop: 20,
         paddingBottom: 20
       }}
       >
-        <Text style={{}}>{this.props.duration}</Text>
+        <Image style={{
+          width: 27,
+          height: 27,
+          resizeMode: Image.resizeMode.stretch}}
+        source={require('image!plane_icon')}/>
+        <Text style={{marginTop: 2, marginLeft: 35 }}>{this.props.duration}</Text>
         <Text>Flight {this.props.flightNumber}</Text>
       </View>
     );

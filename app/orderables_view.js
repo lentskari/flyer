@@ -154,7 +154,6 @@ module.exports = React.createClass({
   },
 
   uberSelected: function() {
-    this.setState({loading: true});
     new Geolocation().getCurrentLocation().then((location) => {
       console.log(this.props.originAirport);
       return fetch(`${env.apiHost}/uber/ride`, {
@@ -183,6 +182,7 @@ module.exports = React.createClass({
     this.uberPollId = setInterval(() => {
       if (!this.state.uber) return;
       var uber = this.state.uber;
+      console.log(uber);
       fetch(`${env.apiHost}/uber/ride/${uber.request_id}`, {
         method: 'get',
         headers: {

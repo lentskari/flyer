@@ -36,27 +36,18 @@ module.exports = React.createClass({
   },
 
   renderMemberView: function() {
-    if (this.state.loading) {
-      return <Image source={require('image!white_progress')} style={{
-          marginLeft: 140,
-          width: 51,
-          height: 51,
-          resizeMode: Image.resizeMode.stretch
-        }} />
-    } else {
-      return <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginTop: 20, borderBottomColor: "#ffffff"}}>
-        <TextInput
-          placeholder="Booking reference"
-          returnKeyType="done"
-          keyboardType="numbers-and-punctuation"
-          placeholderTextColor="#ffffff"
-          style={[baseStyles.input, { flex: 0.8 }]}
-          onChangeText={(text) => this.setState({bookingNumber: text})}
-          value={this.state.bookingNumber}
-          onSubmitEditing={this.submitJourney}
-        />
-      </View>;
-    }
+    return <View style={{flexDirection: 'row', width: 200, height: 30, padding: 0, borderBottomWidth: 1, marginLeft: 60, marginTop: 20, borderBottomColor: "#ffffff"}}>
+      <TextInput
+        placeholder="Booking reference"
+        returnKeyType="done"
+        keyboardType="numbers-and-punctuation"
+        placeholderTextColor="#ffffff"
+        style={[baseStyles.input, { flex: 0.8 }]}
+        onChangeText={(text) => this.setState({bookingNumber: text})}
+        value={this.state.bookingNumber}
+        onSubmitEditing={this.submitJourney}
+      />
+    </View>;
   },
 
   render: function () {
@@ -78,7 +69,6 @@ module.exports = React.createClass({
     if (_.isEmpty(this.state.bookingNumber) || _.isNaN(Number(this.state.bookingNumber))) {
       return AlertIOS.alert("Member Number is missing or isn't number");
     }
-    this.setState({loading: true});
     fetch(`${env.apiHost}/customers`, {
       method: 'post',
       headers: {

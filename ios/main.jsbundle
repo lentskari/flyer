@@ -1375,7 +1375,7 @@ throw new TypeError(
 
 var index=findIndex.call(this,predicate,context);
 return index === -1?undefined:this[index];}});}})();
-__d('flyer/index.ios.js',["react-native/Libraries/react-native/react-native.js","flyer/app/styles/base.js","flyer/app/uber_connect.js","flyer/app/info_view.js","flyer/app/member_view.js","flyer/app/lib/geolocation.js","flyer/app/logo_view.js","flyer/app/journey_view.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');
+__d('flyer/index.ios.js',["react-native/Libraries/react-native/react-native.js","flyer/app/styles/base.js","flyer/app/uber_connect.js","flyer/app/info_view.js","flyer/app/member_view.js","flyer/app/lib/geolocation.js","flyer/app/journey_view.js","flyer/app/logo_view.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');
 
 var baseStyles=require('flyer/app/styles/base.js');
 var UberConnect=require('flyer/app/uber_connect.js');
@@ -54267,7 +54267,7 @@ return coalescedChildren;}
 
 module.exports = coalesceNonElementChildren;
 });
-__d('flyer/app/info_view.js',["image!eiffel-tower","react-native/Libraries/react-native/react-native.js","underscore/underscore.js","react-native-button/Button.js","flyer/app/styles/base.js","flyer/app/logo_view.js","flyer/app/journey_view.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');
+__d('flyer/app/info_view.js',["image!eiffel-tower","react-native/Libraries/react-native/react-native.js","underscore/underscore.js","react-native-button/Button.js","flyer/app/journey_view.js","flyer/app/styles/base.js","flyer/app/logo_view.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');
 var _=require('underscore/underscore.js');
 
 var Button=require('react-native-button/Button.js');
@@ -59147,7 +59147,7 @@ React.createElement(Text,{style:{fontFamily:'Avenir-Medium'}},'o')),
 React.createElement(View,{style:{width:200}},
 React.createElement(Text,{style:{fontSize:16,fontFamily:'Avenir-Medium'}},this.props.address))));}});
 });
-__d('flyer/app/orderables_view.js',["image!uber_button1","image!bus_button1","image!taxi_button1","image!car_button1","image!uber_icon","image!star_icon","react-native/Libraries/react-native/react-native.js","flyer/app/env.js","flyer/app/styles/base.js","flyer/app/lib/geolocation.js","react-native-button/Button.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');
+__d('flyer/app/orderables_view.js',["image!progress_animation","image!uber_button1","image!bus_button1","image!taxi_button1","image!car_button1","image!uber_icon","image!star_icon","react-native/Libraries/react-native/react-native.js","flyer/app/env.js","flyer/app/styles/base.js","flyer/app/lib/geolocation.js","react-native-button/Button.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');
 var env=require('flyer/app/env.js');
 
 var baseStyles=require('flyer/app/styles/base.js');
@@ -59165,12 +59165,27 @@ var Button=require('react-native-button/Button.js');
 
 module.exports = React.createClass({displayName:'exports',
 getInitialState:function(){
-return {uber:false};},
+return {uber:false,loading:false};},
 
 
 componentWillUnmount:function(){
 if(this.uberPollId){
 clearInterval(this.uberPollId);}},
+
+
+
+uberButton:function(){
+if(this.state.loading){
+return React.createElement(Image,{source:require('image!progress_animation'),style:{
+width:51,
+height:51,
+marginRight:5}});}
+
+
+return React.createElement(View,null,
+React.createElement(Button,{onPress:this.uberSelected},
+React.createElement(Image,{style:{width:52,marginRight:5},source:require('image!uber_button1')})));},
+
 
 
 
@@ -59195,11 +59210,7 @@ paddingTop:5,
 paddingBottom:20}},
 
 
-React.createElement(View,null,
-React.createElement(Button,{onPress:this.uberSelected},
-React.createElement(Image,{style:{width:52,marginRight:5},source:require('image!uber_button1')}))),
-
-
+this.uberButton(),
 React.createElement(View,null,
 React.createElement(Button,{onPress:this.alertComing},
 React.createElement(Image,{style:{width:52,marginRight:5},source:require('image!bus_button1')}))),
@@ -59307,6 +59318,7 @@ end_lat:_this.props.originAirport.latitude,
 end_lon:_this.props.originAirport.longitude})}).
 
 then(function(response){
+_this.setState({loading:false});
 return response.text();}).
 then(function(uberResp){
 _this.setState({uber:JSON.parse(uberResp)});
@@ -59319,6 +59331,7 @@ pollUberStatus:function(){var _this2=this;
 this.uberPollId = setInterval(function(){
 if(!_this2.state.uber)return;
 var uber=_this2.state.uber;
+console.log(uber);
 fetch(env.apiHost + '/uber/ride/' + uber.request_id,{
 method:'get',
 headers:{
@@ -64620,6 +64633,8 @@ module.exports = ret;},
 {"./es5":13}]},{},[4])(4);});
 ;if(typeof window !== 'undefined' && window !== null){window.P = window.Promise;}else if(typeof self !== 'undefined' && self !== null){self.P = self.Promise;}
 });
+__d('image!progress_animation',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/waltsu/waltsu/junction/flyer/ios/progress_animation.gif","uri":"progress_animation","width":52,"height":52,"deprecated":true};
+});
 __d('image!uber_button1',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/waltsu/waltsu/junction/flyer/ios/uber_button1.png","uri":"uber_button1","width":52,"height":56,"deprecated":true};
 });
 __d('image!bus_button1',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/waltsu/waltsu/junction/flyer/ios/bus_button1.png","uri":"bus_button1","width":52,"height":56,"deprecated":true};
@@ -64632,13 +64647,14 @@ __d('image!uber_icon',[],function(global, require, module, exports) {  module.ex
 });
 __d('image!star_icon',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/waltsu/waltsu/junction/flyer/ios/star_icon.png","uri":"star_icon","width":28,"height":28,"deprecated":true};
 });
-__d('flyer/app/flight_info_view.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  var 
+__d('flyer/app/flight_info_view.js',["image!plane_icon","react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  var 
 React=require('react-native/Libraries/react-native/react-native.js');var 
 
 
 View=
 
-React.View;var Text=React.Text;
+
+React.View;var Text=React.Text;var Image=React.Image;
 
 module.exports = React.createClass({displayName:'exports',
 render:function(){
@@ -64646,13 +64662,19 @@ return (
 React.createElement(View,{style:{
 flex:1,
 flexDirection:'row',
-justifyContent:'center',
 paddingTop:20,
 paddingBottom:20}},
 
 
-React.createElement(Text,{style:{}},this.props.duration),
+React.createElement(Image,{style:{
+width:27,
+height:27,
+resizeMode:Image.resizeMode.stretch},
+source:require('image!plane_icon')}),
+React.createElement(Text,{style:{marginTop:2,marginLeft:35}},this.props.duration),
 React.createElement(Text,null,'Flight ',this.props.flightNumber)));}});
+});
+__d('image!plane_icon',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/waltsu/waltsu/junction/flyer/ios/plane_icon.png","uri":"plane_icon","width":54,"height":54,"deprecated":true};
 });
 __d('image!clouds',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/waltsu/waltsu/junction/flyer/ios/clouds.png","uri":"clouds","width":320,"height":568,"deprecated":true};
 });
@@ -64683,7 +64705,8 @@ getInitialState:function(){
 return {
 currentLocation:{},
 bookingNumber:"",
-address:this.props.route.props.address};},
+address:this.props.route.props.address,
+loading:false};},
 
 
 
@@ -64694,24 +64717,28 @@ _this.setState({currentLocation:location});}).
 catch(function(error){return console.log(error);});},
 
 
-render:function(){var _this2=this;
-return (
-React.createElement(View,null,
-React.createElement(Image,{source:require('image!senaatti1'),style:baseStyles.backgroundImage,resizeMode:'cover'}),
-React.createElement(Logo,null),
-React.createElement(Text,{style:baseStyles.goText},'What is your booking reference?'),
-React.createElement(View,{style:{flexDirection:'row',width:200,height:30,padding:0,borderBottomWidth:1,marginLeft:60,marginTop:20,borderBottomColor:"#ffffff"}},
+renderMemberView:function(){var _this2=this;
+return React.createElement(View,{style:{flexDirection:'row',width:200,height:30,padding:0,borderBottomWidth:1,marginLeft:60,marginTop:20,borderBottomColor:"#ffffff"}},
 React.createElement(TextInput,{
-placeholder:'Number',
+placeholder:'Booking reference',
 returnKeyType:'done',
 keyboardType:'numbers-and-punctuation',
 placeholderTextColor:'#ffffff',
 style:[baseStyles.input,{flex:0.8}],
 onChangeText:function(text){return _this2.setState({bookingNumber:text});},
 value:this.state.bookingNumber,
-onSubmitEditing:this.submitJourney}))));},
+onSubmitEditing:this.submitJourney}));},
 
 
+
+
+render:function(){
+return (
+React.createElement(View,null,
+React.createElement(Image,{source:require('image!senaatti1'),style:baseStyles.backgroundImage,resizeMode:'cover'}),
+React.createElement(Logo,null),
+React.createElement(Text,{style:baseStyles.goText},'What is your booking reference?'),
+this.renderMemberView()));},
 
 
 
@@ -64732,6 +64759,7 @@ headers:{
 
 body:JSON.stringify({"member_number":Number(this.state.bookingNumber)})}).
 then(function(response){
+_this3.setState({loading:false});
 return response.text();}).
 then(function(responseText){
 var body=JSON.parse(responseText);
