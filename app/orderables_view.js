@@ -1,4 +1,5 @@
 var React = require('react-native');
+var env = require('./env');
 
 var baseStyles = require('./styles/base');
 
@@ -144,7 +145,7 @@ module.exports = React.createClass({
   uberSelected: function() {
     new Geolocation().getCurrentLocation().then((location) => {
       console.log(this.props.originAirport);
-      return fetch('http://api.steward.dev/uber/ride', {
+      return fetch(`${env.apiHost}/uber/ride`, {
         method: 'post',
         headers: {
           'Accept': 'application/json',
@@ -169,7 +170,7 @@ module.exports = React.createClass({
     this.uberPollId = setInterval(() => {
       if (!this.state.uber) return;
       var uber = this.state.uber;
-      fetch(`http://api.steward.dev/uber/ride/${uber.request_id}`, {
+      fetch(`${env.apiHost}/uber/ride/${uber.request_id}`, {
         method: 'get',
         headers: {
           'Accept': 'application/json',

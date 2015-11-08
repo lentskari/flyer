@@ -1,6 +1,8 @@
 var React = require('react-native');
 var _ = require('underscore');
 
+var env = require('./env');
+
 var Button = require('react-native-button');
 
 var baseStyles = require('./styles/base');
@@ -71,7 +73,7 @@ module.exports = React.createClass({
     if (_.isEmpty(this.state.bookingNumber) || _.isNaN(Number(this.state.bookingNumber))) {
       return AlertIOS.alert("Member Number is missing or isn't number");
     }
-    fetch('http://api.steward.dev/customers', {
+    fetch(`${env.apiHost}/customers`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -86,7 +88,7 @@ module.exports = React.createClass({
       lat = this.state.currentLocation.lat
       lon = this.state.currentLocation.lon
       latLon=`lon=${lon}&lat=${lat}`
-      url = `http://api.steward.dev/journeys/${body.id}?${latLon}`
+      url = `${env.apiHost}/journeys/${body.id}?${latLon}`
       console.log(url)
       fetch(url, {
         method: 'get',
