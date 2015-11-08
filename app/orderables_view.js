@@ -105,9 +105,17 @@ module.exports = React.createClass({
             fontFamily: 'Avenir-Black',
             fontSize: 13,
             width: 100 }}>{uber.driver.name.toUpperCase()}</Text>
+
+          <Image style={{
+            width: 14,
+            height: 14,
+            resizeMode: Image.resizeMode.stretch,
+            marginRight: 2,
+            marginTop: 1}}
+            source={require('image!star_icon')}/>
           <Text style={{
             fontFamily: 'Avenir-Black',
-            fontSize: 13 }}>{uber.driver.rating} STARS</Text>
+            fontSize: 13 }}>{uber.driver.rating}</Text>
         </View>
         <View style={{
           marginTop: 5,
