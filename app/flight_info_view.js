@@ -23,7 +23,7 @@ module.exports = React.createClass({
           resizeMode: Image.resizeMode.stretch}}
         source={require('image!plane_icon')}/>
         <Text style={{marginTop: 2, marginLeft: 35 }}>{this.props.duration}</Text>
-        <Text>Flight {this.props.flightNumber}</Text>
+        <Text style={{marginTop: 2}}>Flight {this.props.flightNumber}</Text>
       </View>
     );
   }

@@ -64672,7 +64672,7 @@ height:27,
 resizeMode:Image.resizeMode.stretch},
 source:require('image!plane_icon')}),
 React.createElement(Text,{style:{marginTop:2,marginLeft:35}},this.props.duration),
-React.createElement(Text,null,'Flight ',this.props.flightNumber)));}});
+React.createElement(Text,{style:{marginTop:2}},'Flight ',this.props.flightNumber)));}});
 });
 __d('image!plane_icon',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/waltsu/waltsu/junction/flyer/ios/plane_icon.png","uri":"plane_icon","width":54,"height":54,"deprecated":true};
 });
