@@ -46,7 +46,7 @@ module.exports = React.createClass({
               address={props.next.destination_airport.name}
               time={moment(props.next.flight.arrival_time).utc().format("hh:mm")}
             />
-            <Orderables />
+            <Orderables originAirport={props.next.origin_airport} />
             <TimedLocation address={props.final_address} time="" />
           </View>
         </View>
