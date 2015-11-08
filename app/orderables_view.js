@@ -96,28 +96,30 @@ module.exports = React.createClass({
     if (!uber.driver || !uber.vehicle) return;
     console.log("Got uber and driver");
     console.log(uber);
-    return <View style={{marginLeft: 60}}>
-      <View style={{
-        marginTop: 5,
-        flexDirection: 'row' }}>
+    return <View style={{ flexDirection: "row" }}>
+      <Text style={{ fontSize: 14, fontFamily: 'Avenir-Medium' }}>{uber.eta} min</Text>
+      <View style={{ marginLeft: 26 }}>
+        <View style={{
+          flexDirection: 'row' }}>
+          <Text style={{
+            fontFamily: 'Avenir-Black',
+            fontSize: 13,
+            width: 100 }}>{uber.driver.name.toUpperCase()}</Text>
+          <Text style={{
+            fontFamily: 'Avenir-Black',
+            fontSize: 13 }}>{uber.driver.rating} STARS</Text>
+        </View>
+        <View style={{
+          marginTop: 5,
+          flexDirection: 'row' }}>
+          <Text style={{
+            width: 100,
+            fontFamily: 'Avenir-Black',
+            fontSize: 13 }}>{`${uber.vehicle.make.toUpperCase()} ${uber.vehicle.model.toUpperCase()}`}</Text>
         <Text style={{
           fontFamily: 'Avenir-Black',
-          fontSize: 13,
-          width: 100 }}>{uber.driver.name.toUpperCase()}</Text>
-        <Text style={{
-          fontFamily: 'Avenir-Black',
-          fontSize: 13 }}>{uber.driver.rating} STARS</Text>
-      </View>
-      <View style={{
-        marginTop: 5,
-        flexDirection: 'row' }}>
-        <Text style={{
-          width: 100,
-          fontFamily: 'Avenir-Black',
-          fontSize: 13 }}>{`${uber.vehicle.make.toUpperCase()} ${uber.vehicle.model.toUpperCase()}`}</Text>
-      <Text style={{
-        fontFamily: 'Avenir-Black',
-        fontSize: 13}}>{uber.vehicle.license_plate}</Text>
+          fontSize: 13}}>{uber.vehicle.license_plate}</Text>
+        </View>
       </View>
     </View>;
   },
