@@ -35,7 +35,7 @@ module.exports = StyleSheet.create({
     color: "#ffffff",
   },
   goText: {
-    marginTop: 120,
+    marginTop: 140,
     fontFamily: 'Avenir',
     fontSize: 30,
     color: "#ffffff",

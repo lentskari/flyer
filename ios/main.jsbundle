@@ -54044,7 +54044,7 @@ borderColor:"#ffffff",
 color:"#ffffff"},
 
 goText:{
-marginTop:120,
+marginTop:140,
 fontFamily:'Avenir',
 fontSize:30,
 color:"#ffffff",
@@ -54297,22 +54297,15 @@ return React.createElement(View,{style:{}},
 React.createElement(Image,{source:require('image!eiffel-tower'),style:baseStyles.backgroundImage,resizeMode:'cover'}),
 React.createElement(Logo,null),
 React.createElement(Text,{style:baseStyles.goText},'I want to go to'),
-React.createElement(View,{style:{flexDirection:'row',height:30,padding:0,borderBottomWidth:1,marginLeft:60,marginRight:60,marginBottom:210,borderBottomColor:"#ffffff"}},
+React.createElement(View,{style:{flexDirection:'row',height:30,padding:0,borderBottomWidth:1,marginLeft:60,marginRight:60,marginBottom:180,borderBottomColor:"#ffffff"}},
 React.createElement(TextInput,{
 returnKeyType:'next',
 placeholder:'Destination',
 placeholderTextColor:'#ffffff',
-style:[baseStyles.input,{flex:0.8}],
+style:[baseStyles.input,{flex:0.1}],
 onChangeText:function(text){return _this.setState({address:text});},
 value:this.state.address,
-onSubmitEditing:function(){_this.props.onForward({address:_this.state.address});}})),
-
-
-React.createElement(Text,{style:{
-position:'absolute',
-color:"#ffffff",
-marginLeft:70,
-bottom:0}},'Change my current location!'));}});
+onSubmitEditing:function(){_this.props.onForward({address:_this.state.address});}})));}});
 });
 __d('underscore/underscore.js',[],function(global, require, module, exports) {  (
 
@@ -64711,6 +64704,7 @@ React.createElement(View,{style:{flexDirection:'row',width:200,height:30,padding
 React.createElement(TextInput,{
 placeholder:'Number',
 returnKeyType:'done',
+keyboardType:'numbers-and-punctuation',
 placeholderTextColor:'#ffffff',
 style:[baseStyles.input,{flex:0.8}],
 onChangeText:function(text){return _this2.setState({bookingNumber:text});},

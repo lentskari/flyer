@@ -44,6 +44,7 @@ module.exports = React.createClass({
           <TextInput
             placeholder="Number"
             returnKeyType="done"
+            keyboardType="numbers-and-punctuation"
             placeholderTextColor="#ffffff"
             style={[baseStyles.input, { flex: 0.8 }]}
             onChangeText={(text) => this.setState({bookingNumber: text})}
